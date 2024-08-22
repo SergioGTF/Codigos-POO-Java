@@ -2,27 +2,37 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        try (Scanner entrada = new Scanner(System.in)) {
-            System.out.print("Digite um número: ");
-            int numero = entrada.nextInt();
-            int tamanho = 0;
-            int numero_copia = numero;
-            while(numero_copia != 0){
-                tamanho += 1;
-                numero_copia /= 10;
-            }
-            int numero_invertido = 0;
-            int potencia = 1;
-            numero_copia = numero;
-            while (numero_copia != 0) {
-                numero_invertido = (int)(numero_copia/Math.pow(10, tamanho-1))*potencia;
-                numero_copia = (int) (numero_copia%Math.pow(10, tamanho-1));
-                potencia *= 10;
-                tamanho -= 10;
-            }
-            if (numero == numero_invertido) {
-             
-            }
+        /*
+         * Questão 04
+         * Crie um algoritmo que leia um número e diga se o número é um palindromo ou
+         * não.
+         * Um palíndromo é um número inteiro positivo, sem zeros à esquerda, que é o
+         * mesmo se lido da esquerda para a direita ou da direita para a esquerda. Por
+         * exemplo, os números 11 e 65256 são palíndromos, mas os números 010 e 123 não
+         * são.
+         */
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro positivo: ");
+        String numero = scanner.nextLine();
+
+        if (isPalindromo(numero)) {
+            System.out.println("O número " + numero + " é um palíndromo.");
+        } else {
+            System.out.println("O número " + numero + " não é um palíndromo.");
         }
+
+        scanner.close();
+    }
+
+    public static boolean isPalindromo(String numero) {
+        if (numero.length() > 1 && numero.charAt(0) == '0') {
+            return false;
+        }
+
+        String numeroInvertido = new StringBuilder(numero).reverse().toString();
+
+        return numero.equals(numeroInvertido);
     }
 }
