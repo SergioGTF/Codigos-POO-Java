@@ -3,6 +3,7 @@ import java.util.Random;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        /* */
         Regiao mapa = new Regiao(50, 50, 100, 3);
         Random aleatorio = new Random();
 
