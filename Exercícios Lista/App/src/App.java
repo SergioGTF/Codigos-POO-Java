@@ -3,7 +3,7 @@ public class App {
     public static boolean calcularRaizes(double a, double b, double c, double[] raizes) {  
         if (a == 0) {  
             System.out.println("O coeficiente 'a' não pode ser zero.");  
-            return false; // Não é uma equação quadrática  
+            return false; 
         }  
         
         double delta = b * b - 4 * a * c;  
